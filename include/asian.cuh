@@ -12,3 +12,9 @@ public:
   double asianOptionCPU(int paths, int fixings);
   double asianOptionGPU(int paths, int fixings);
 };
+
+template <typename Payoff>
+__global__ void asianOptionGPUKernel(double S0, double K, double r,
+                                     double sigma, double T, int tradingDays,
+                                     int paths, int fixings, double *results,
+                                     Payoff payoff);

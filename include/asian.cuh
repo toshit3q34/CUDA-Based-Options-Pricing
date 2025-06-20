@@ -3,14 +3,17 @@
 
 template <typename Payoff> class AsianOption {
 private:
-  double S0, K, r, sigma, T, tradingDays;
+  double S0, K, r, sigma, T;
+  int tradingDays, fixings;
 
 public:
-  AsianOption(double _S0, double _K, double _r, double _sigma, double _T, int _tradingDays)
-      : S0(_S0), K(_K), r(_r), sigma(_sigma), T(_T), tradingDays(_tradingDays) {}
+  AsianOption(double _S0, double _K, double _r, double _sigma, double _T,
+              int _tradingDays, int _fixings)
+      : S0(_S0), K(_K), r(_r), sigma(_sigma), T(_T), tradingDays(_tradingDays),
+        fixings(_fixings) {}
 
-  double asianOptionCPU(int paths, int fixings);
-  double asianOptionGPU(int paths, int fixings);
+  double asianOptionCPU(int paths);
+  double asianOptionGPU(int paths);
 };
 
 template <typename Payoff>

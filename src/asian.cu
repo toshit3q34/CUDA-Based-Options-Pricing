@@ -6,7 +6,7 @@
 #include <vector>
 
 template <typename Payoff>
-double AsianOption<Payoff>::asianOptionCPU(int paths, int fixings) {
+double AsianOption<Payoff>::asianOptionCPU(int paths) {
 
   std::mt19937_64 rng(42);
   std::normal_distribution<double> norm(0.0, 1.0);
@@ -63,7 +63,7 @@ __global__ void asianOptionGPUKernel(double S0, double K, double r,
 }
 
 template <typename Payoff>
-double AsianOption<Payoff>::asianOptionGPU(int paths, int fixings) {
+double AsianOption<Payoff>::asianOptionGPU(int paths) {
   double *d_results = nullptr;
   cudaMalloc(&d_results, paths * sizeof(double));
 

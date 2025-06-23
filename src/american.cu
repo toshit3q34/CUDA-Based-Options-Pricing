@@ -112,3 +112,5 @@ double AmericanOption<Payoff>::americanOption_LSM_CPU(int paths) {
   }
   return price / paths;
 }
+
+template class AmericanOption<PutPayoff>;

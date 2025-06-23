@@ -130,3 +130,6 @@ double BasketOption<Payoff>::basketOptionGPU(int paths) {
 
   return exp(-r * T) * (sum / static_cast<double>(paths));
 }
+
+template class BasketOption<CallPayoff>;
+template class BasketOption<PutPayoff>;

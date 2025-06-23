@@ -67,3 +67,6 @@ double EuropeanOption<Payoff>::europeanOptionGPU(int paths) {
 
   return exp(-r * T) * (sum / static_cast<double>(paths));
 }
+
+template class EuropeanOption<CallPayoff>;
+template class EuropeanOption<PutPayoff>;

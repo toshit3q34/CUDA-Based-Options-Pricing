@@ -88,3 +88,6 @@ double AsianOption<Payoff>::asianOptionGPU(int paths) {
 
   return exp(-r * T) * (sum / static_cast<double>(paths));
 }
+
+template class AsianOption<CallPayoff>;
+template class AsianOption<PutPayoff>;

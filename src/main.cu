@@ -140,6 +140,11 @@ int main(int argc, char *argv[]) {
                                        : opt.europeanOptionCPU(paths);
       std::cout << "Price: " << price << '\n';
     } else {
+      if (method == "gpu") {
+        std::cerr << "[Error] American Put is not supported with GPU at the "
+                     "moment!\n";
+        return 1;
+      }
       AmericanOption<PutPayoff> opt(S0, K, r, sigma, T, steps);
       Timer timer("American Put CPU");
       double price = opt.americanOption_LSM_CPU(paths);
@@ -147,7 +152,7 @@ int main(int argc, char *argv[]) {
     }
 
   } else {
-    std::cerr << "Unknown option type.\n";
+    std::cerr << "[Error] Unknown option type!\n";
     std::cout << cli.help() << '\n';
     return 1;
   }

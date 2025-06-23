@@ -17,7 +17,7 @@ public:
 
   double basketOptionCPU(int paths);
   double basketOptionGPU(int paths);
-  void copyFromHostVector(double *d_vect, std::vector<double> &vect);
+  void copyFromHostVector(double *&d_vect, std::vector<double> &vect);
 };
 
 template <typename Payoff>

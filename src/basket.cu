@@ -6,10 +6,10 @@
 #include <vector>
 
 template <typename Payoff>
-BasketOption<Payoff>::BasketOption(const std::vector<double> &S0_,
-                                   const std::vector<double> &sigma_,
-                                   const std::vector<double> &w_,
-                                   const std::vector<double> &L_, double r_,
+BasketOption<Payoff>::BasketOption(std::vector<double> &S0_,
+                                   std::vector<double> &sigma_,
+                                   std::vector<double> &w_,
+                                   std::vector<double> &L_, double r_,
                                    double T_, double K_)
     : S0(S0_), sigma(sigma_), w(w_), L(L_), r(r_), T(T_), K(K_),
       N(static_cast<int>(S0_.size())) {
@@ -52,6 +52,7 @@ double BasketOption<Payoff>::basketOptionCPU(int paths) {
   return std::exp(-r * T) * (payoffSum / paths);
 }
 
+template <typename Payoff>
 void BasketOption<Payoff>::copyFromHostVector(double *&d_vect,
                                               std::vector<double> &vect) {
   cudaMalloc(&d_vect, vect.size() * sizeof(double));

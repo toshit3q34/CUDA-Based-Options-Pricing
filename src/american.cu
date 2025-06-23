@@ -28,8 +28,14 @@ __host__ __device__ void quadraticRegression(double *X, double *Y, int n,
   double D = n * (Sx2 * Sx4 - Sx3 * Sx3) - Sx * (Sx * Sx4 - Sx2 * Sx3) +
              Sx2 * (Sx * Sx3 - Sx2 * Sx2);
 
-  if (std::abs(D) < 1e-12) {
-    a0 = a1 = a2 = 0;
+  if (D < 0) {
+    D *= -1;
+  }
+
+  if (D < 1e-12) {
+    a0 = 0;
+    a1 = 0;
+    a2 = 0;
     return;
   }
 

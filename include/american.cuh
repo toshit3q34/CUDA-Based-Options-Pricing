@@ -15,5 +15,6 @@ public:
   double americanOption_LSM_CPU(int paths);
 };
 
-__host__ __device__ void quadraticRegression(double *X, double *Y, double &a0,
-                                             double &a1, double &a2);
+__host__ __device__ void quadraticRegression(double *X, double *Y, int n,
+                                             double &a0, double &a1,
+                                             double &a2);

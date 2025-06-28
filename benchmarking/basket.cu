@@ -25,7 +25,7 @@ int main() {
   double K = 100.0;
   double r = 0.05;
   double T = 1.0;
-  int paths = 1000000;
+  int paths = 10000000;
 
   BasketOption<CallPayoff> opt(S0, sigmas, weights, Lflat, r, T, K);
   for (int i = 0; i <= totalIterations; i++) {

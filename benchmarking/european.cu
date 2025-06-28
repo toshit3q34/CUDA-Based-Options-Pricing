@@ -15,7 +15,7 @@ int main() {
   double r = 0.05;
   double sigma = 0.2;
   double T = 1.0;
-  int paths = 1000000;
+  int paths = 10000000;
   EuropeanOption<CallPayoff> opt(S0, K, r, sigma, T);
   for (int i = 0; i <= totalIterations; i++) {
     std::string num = std::to_string(i);

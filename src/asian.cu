@@ -17,14 +17,15 @@ double AsianOption<Payoff>::asianOptionCPU(int paths) {
 
   for (int i = 0; i < paths; ++i) {
     double sum_S = 0.0;
-    for (int j = 0; j < 252; j++) {
+    double copy_S0 = S0;
+    for (int j = 0; j < tradingDays; j++) {
       double Z = norm(rng);
-      double ST = S0 * std::exp((r - 0.5 * sigma * sigma) * dT +
+      double ST = copy_S0 * std::exp((r - 0.5 * sigma * sigma) * dT +
                                 sigma * std::sqrt(dT) * Z);
-      if (252 - j <= fixings) {
+      if (tradingDays - j <= fixings) {
         sum_S += ST;
       }
-      S0 = ST;
+      copy_S0 = ST;
     }
     double avg_S = sum_S / fixings;
     double curr_payoff = payoff(avg_S, K);

@@ -46,7 +46,6 @@ This project implements a high-performance Monte Carlo simulation framework in C
 │   ├── basket.cu
 │   └── american.cu
 ├── benchmarking/
-│   ├── main.cu
 │   ├── european.cu
 │   ├── asian.cu
 │   ├── basket.cu

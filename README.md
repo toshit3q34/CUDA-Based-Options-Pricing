@@ -57,6 +57,8 @@ This project implements a high-performance Monte Carlo simulation framework in C
 └── README.md
 ```
 
+---
+
 ## Usage
 
 ```bash
